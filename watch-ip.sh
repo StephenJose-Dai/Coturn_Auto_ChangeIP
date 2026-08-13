@@ -3,7 +3,7 @@
 CONF="/coturn-conf/turnserver.conf"
 LOCAL_IP="${LOCAL_IP:-172.16.227.1}"
 IFACE="${IFACE:-eth0}"
-DDNS_DOMAIN="${DDNS_DOMAIN:-chat.daish.eu.org}"
+DDNS_DOMAIN="${DDNS_DOMAIN:-chat.baidu.com}"
 INTERVAL="${INTERVAL:-180}"
 CONTAINER="${CONTAINER:-coturn}"
 IP_MODE="${IP_MODE:-dual}"        # dual | v4 | v6

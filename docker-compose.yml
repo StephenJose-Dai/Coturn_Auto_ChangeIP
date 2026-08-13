@@ -5,7 +5,7 @@ services:
     restart: always
     network_mode: host
     environment:
-      - DDNS_DOMAIN=chat.daish.eu.org
+      - DDNS_DOMAIN=chat.baidu.com   #这里填写你的DDNS域名
       - IFACE=eth0
       - INTERVAL=180
       - IP_MODE=dual          # dual | v4 | v6

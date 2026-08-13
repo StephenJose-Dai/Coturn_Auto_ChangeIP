@@ -6,7 +6,7 @@ services:
     network_mode: host
     environment:
       - DDNS_DOMAIN=chat.baidu.com   #这里填写你的DDNS域名
-      - IFACE=eth0
+      - IFACE=eth0    #这里是指定一个网卡来获取域名的IP
       - INTERVAL=180
       - IP_MODE=dual          # dual | v4 | v6
     

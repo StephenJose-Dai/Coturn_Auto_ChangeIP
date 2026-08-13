@@ -1,0 +1,31 @@
+services:
+  ipwatch:
+    image: docker:cli
+    container_name: ipwatch
+    restart: always
+    network_mode: host
+    environment:
+      - DDNS_DOMAIN=chat.daish.eu.org
+      - IFACE=eth0
+      - INTERVAL=180
+      - IP_MODE=dual          # dual | v4 | v6
+    
+    #这里填写你coturn的配置文件宿主的目录和watch脚本的目录
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /data/coturn/myconf:/coturn-conf
+      - /data/watchip/watch-ip.sh:/watch-ip.sh:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    entrypoint: ["/bin/sh", "/watch-ip.sh"]
+    logging:
+      driver: json-file
+
+      #资源限制，防止无限制使用资源导致系统资源被吃光
+      options:
+        max-size: "5m"
+        max-file: "2"
+    cpus: 0.2
+    mem_limit: 64m
+    memswap_limit: 64m
+    pids_limit: 32
